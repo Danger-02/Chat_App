@@ -1,5 +1,6 @@
 import React from 'react'
 import AuthButtons from './AuthButtons'
+import Image from 'next/image'
 
 const page = () => {
   return (
@@ -29,7 +30,6 @@ const page = () => {
             <img
             src={"/hero-right.png"}
             alt="Hero Image"
-            fill="true"
             className='object-cover dark:opacity-60 opacity-90 pointer-events-none select-none h-full'></img>
         </div>
 

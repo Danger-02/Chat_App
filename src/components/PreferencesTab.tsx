@@ -1,17 +1,14 @@
 "use client"
-import { MoonIcon, SunIcon, Volume2, VolumeX } from "lucide-react";
-import { Button } from "./ui/button";
-import { useTheme } from "next-themes";
-import { usePreferences } from "@/store/usePreferences";
-import { useSound } from "use-sound"
-
-
-
+import {MoonIcon, SunIcon, Volume2, VolumeX} from "lucide-react";
+import {Button} from "./ui/button";
+import {useTheme} from "next-themes";
+import {usePreferences} from "@/store/usePreferences";
+import {useSound} from "use-sound"
 
 const PreferencesTab = () => {
     const {setTheme}=useTheme();
 
-    const {soundEnabled, setSoundEnabled}=usePreferences()
+    const {soundEnabled, setSoundEnabled}= usePreferences()
     const [playMouseClick] = useSound("/sounds/mouse-click.mp3")
     const [playSoundOn] = useSound("/sounds/sound-on.mp3", { volume: 0.4})
     const [playSoundOff] = useSound("/sounds/sound-off.mp3", { volume:0.4})

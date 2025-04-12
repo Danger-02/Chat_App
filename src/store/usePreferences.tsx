@@ -3,10 +3,10 @@ import {create} from "zustand";
 
 type Preferences = {
     soundEnabled: boolean;
-    setsoundEnabled: (soundEnabled: boolean) => void;
+    setSoundEnabled: (soundEnabled: boolean) => void;
 };
 
 export const usePreferences = create<Preferences>((set) => ({
     soundEnabled: true,
-    setsoundEnabled: (soundEnabled: boolean) => set({soundEnabled }),
+    setSoundEnabled: (soundEnabled: boolean) => set({soundEnabled }),
 }));
