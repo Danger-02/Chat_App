@@ -62,7 +62,7 @@ const MessageList = () => {
           >
             <div className='flex gap-3 items-cennter'>
               {message.senderId === selectedUser?.id && (
-                <Avatar className='flex justify-center items-center'>
+                <Avatar className='size-8 flex justify-center items-center'>
                   <AvatarImage
                     src={selectedUser?.image}
                     alt="User Image"
@@ -81,7 +81,7 @@ const MessageList = () => {
               )}
 
               {message.senderId === currentUser?.id && (
-                <Avatar className='flex justify-center items-center'>
+                <Avatar className='size-8 flex justify-center items-center'>
                   <AvatarImage
                     src={currentUser?.picture || "/user-placeholder.png"}
                     alt="User Image"

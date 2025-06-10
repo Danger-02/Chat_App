@@ -20,4 +20,4 @@ export const pusherServer=global.pusherServer || new PusherServer({
     useTLS:true
 });
 
-export const pusherClient=global.pusherClient || new PusherClient(process.env.NEXT_PUBLIC_PUSHER_APP_KEYY!,{cluster:"ap2"});
+export const pusherClient=global.pusherClient || new PusherClient(process.env.NEXT_PUBLIC_PUSHER_APP_KEY!,{cluster:"ap2"});
