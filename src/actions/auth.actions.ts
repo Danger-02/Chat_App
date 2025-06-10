@@ -1,6 +1,6 @@
 "use server";
 
-//import { Redis } from "@upstash/redis";
+import { Redis } from "@upstash/redis";
 import { redis } from "@/lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
@@ -14,7 +14,7 @@ export async function checkAuthStatus(){
 
     const existingUser = await redis.hgetall(userId);
 
-    if(!existingUser || Object.keys(existingUser).length == 0){
+    if(!existingUser || Object.keys(existingUser).length === 0){
         const imgIsNull= user.picture?.includes("gravatar");
         const image = imgIsNull ? "" : user.picture;
 
