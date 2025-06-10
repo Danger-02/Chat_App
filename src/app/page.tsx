@@ -8,6 +8,7 @@ import { redis } from "@/lib/db";
 
 
 async function getUsers(): Promise<User[]> {
+  
   const userKeys:string[]=[];
   let cursor="0";
 

@@ -29,12 +29,13 @@ import { redis } from "@/lib/db";
     //john sends a message to jane
     //senderId:123,receiverId:456
     //`conversation:123:456`
+
     const conversationExists=await redis.exists(conversationId);
 
     if(!conversationExists){
         await redis.hset(conversationId,{
             participant1:senderId,participant2:receiverId
-        })
+        });
 
         await redis.sadd(`user:${senderId}:conversations`,conversationId)
         await redis.sadd(`user:${receiverId}:conversations`,conversationId)

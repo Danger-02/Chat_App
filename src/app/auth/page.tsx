@@ -3,6 +3,7 @@ import AuthButtons from './AuthButtons'
 import Image from 'next/image'
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import {redirect} from "next/navigation"
+import { Button } from '@/components/ui/button'
 
 const page = async() => {
     const{isAuthenticated}=getKindeServerSession();
