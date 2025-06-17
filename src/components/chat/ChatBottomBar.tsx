@@ -176,6 +176,7 @@ const ChatBottomBar = () => {
               }}
             />
           </div>
+        </motion.div>
         
         
         {message.trim() ? (
@@ -194,17 +195,21 @@ const ChatBottomBar = () => {
             variant={"ghost"}
             size={"icon"}            
           >
-            {!isPending && <ThumbsUp size={20} className='text-muted-foreground'  
-            onClick={()=>{
-              sendMessage({content:"👍",messageType:"text",receiverId:selectedUser?.id!})
-            }}/>}
+            {!isPending && (
+              <ThumbsUp 
+                  size={20} className='text-muted-foreground'  
+                  onClick={()=>{
+                          sendMessage({content:"👍",messageType:"text",receiverId:selectedUser?.id!});
+                }}
+              />
+            )}
             {isPending && <Loader size={20} className='animate-spin' />}
           </Button>
         )}
-        </motion.div>
+        
       </AnimatePresence>
     </div>
-  )
+  );
   
 };
 
