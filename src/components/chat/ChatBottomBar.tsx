@@ -67,6 +67,7 @@ const ChatBottomBar = () => {
     }
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(()=>{
     const channelName=`${currentUser?.id}__${selectedUser?.id}`.split("__").sort().join("__");
     const channel=pusherClient?.subscribe(channelName);
@@ -139,7 +140,7 @@ const ChatBottomBar = () => {
       </Dialog>      
 
       <AnimatePresence>
-        <motion.div
+        <motion.div          
           layout
           initial={{opacity:0,scale:1}}
           animate={{opacity:1,scale:1}}
@@ -194,18 +195,21 @@ const ChatBottomBar = () => {
           <Button
             className="h-9 w-9 dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white shrink-0"
             variant={"ghost"}
-            size={"icon"}            
+            size={"icon"}
+            onClick={() => {
+              sendMessage({
+                content: "👍",
+                messageType: "text",
+                receiverId: selectedUser?.id!,
+              });
+            }}
           >
-            {!isPending && (
-              <ThumbsUp 
-                  size={20} className='text-muted-foreground'  
-                  onClick={()=>{
-                          sendMessage({content:"👍",messageType:"text",receiverId:selectedUser?.id!});
-                  }}
-              />
-            )}
-            {isPending && <Loader size={20} className='animate-spin' />}
-          </Button>
+          {!isPending ? (
+            <ThumbsUp size={20} className="text-muted-foreground" />
+          ) : (
+            <Loader size={20} className="animate-spin" />
+          )}
+        </Button>
         )}
         
       </AnimatePresence>

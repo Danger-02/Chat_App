@@ -38,7 +38,7 @@ const MessageList = () => {
       <AnimatePresence>
         {!isMessagesLoading && messages?.map((message,index) => (
           <motion.div 
-            key={index}
+            key={message?.id || `${message?.senderId || "unknown"}-${message?.content?.slice(0, 10) || "empty"}-${index}`}
             layout
             initial={{opacity:0,scale:1,y:50,x:0}}
             animate={{opacity:1,scale:1,y:0,x:0}}
