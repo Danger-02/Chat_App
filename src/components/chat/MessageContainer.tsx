@@ -12,9 +12,9 @@ const MessageContainer = () => {
   useEffect(()=>{
     const handleEscape =(e:KeyboardEvent)=>{
       if(e.key==="Escape")setSelectedUser(null);
-    }
+    };
 
-    document.addEventListener("keydown",handleEscape)
+    document.addEventListener("keydown",handleEscape);
 
     return () => document.removeEventListener("keydown",handleEscape);
 
@@ -23,12 +23,13 @@ const MessageContainer = () => {
   return (
     <div className="flex flex-col justify-between w-full h-full">
         <ChatTopBar />
+
         <div className="w-full overflow-y-auto overflow-x-hidden h-full flex flex-col">
             <MessageList />
             <ChatBottomBar />
         </div>
     </div>
-  )
-}
+  );
+};
 
-export default MessageContainer
+export default MessageContainer;
