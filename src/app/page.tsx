@@ -6,6 +6,11 @@ import {redirect} from "next/navigation"
 import { User } from "@/db/dummy";
 import { redis } from "@/lib/db";
 
+export const metadata = {
+  title: "StarkConnect",
+  description: "Smart and Secure Messaging Platform",
+};
+
 
 async function getUsers(): Promise<User[]> {
   

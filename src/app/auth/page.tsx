@@ -12,15 +12,16 @@ const page = async() => {
     return (
     <div className='flex h-screen w-full'>
         
-        <div className='flex-1 flex overflow-hidden dark:bg-[#651c2b55] bg-[#651c2b] relative justify-center items-center'>
-            <img src='/redis-logo.svg' alt='Redis Logo'
-                className='absolute -left-1/4 opacity-25 bottom-52 lg:scale-125 xl:scale-100 scale-[2]
-                pointer-events-none select-none -z-1'
-            />
+        <div className='flex-1 flex overflow-hidden relative justify-center items-center'>
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-25 pointer-events-none select-none z-0"
+                style={{ backgroundImage: "url('bg-image.jpeg')" }}
+            ></div>
+
             <div className='flex flex-col gap-2 px-4 xl:ml-40 text-center md:text-start font-semibold'>
                 <img 
-                    src={"/logo.png"}
-                    alt='RediStash Logo'
+                    src={"StarkConnect.svg"}
+                    alt='StarkConnect Logo'
                     width={763}
                     height={173}
                     className='mt-20 w-[420px] z-0 pointer-events-none select-none'/>
@@ -36,7 +37,7 @@ const page = async() => {
             <img
             src={"/hero-right.png"}
             alt="Hero Image"
-            className='object-cover dark:opacity-60 opacity-90 pointer-events-none select-none h-full'></img>
+            className='object-cover  pointer-events-none select-none h-full'></img>
         </div>
 
     </div>
