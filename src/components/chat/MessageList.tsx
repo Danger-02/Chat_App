@@ -36,7 +36,7 @@ const MessageList = () => {
     <div ref={messageContainerRef} className='w-full overflow-y-auto overflow-x-hidden h-full flex flex-col'>
       {/*This component ensure that an animation is applied when items are added to or removed from the list */}
       <AnimatePresence>
-        {!isMessagesLoading && messages?.map((message,index) => (
+        {!isMessagesLoading && messages?.map((message) => (
           <motion.div 
 
             key={`${message.senderId}-${message.timestamp}`}
