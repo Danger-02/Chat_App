@@ -42,10 +42,11 @@ const Sidebar = ({isCollapsed,users}: SidebarProps) => {
 							<Tooltip delayDuration={0}>
 								<TooltipTrigger asChild>
 									
-                                    <div onClick={()=> {
-																				soundEnabled ? playClickSound() : null;
+                                    <div onClick={() => {
+										if (soundEnabled) playClickSound();
 										setSelectedUser(user);
 									}}>
+
 										<Avatar className='my-1 flex justify-center items-center'>
 											<AvatarImage
 												src={user.image || "/user-placeholder.png"}
@@ -74,10 +75,11 @@ const Sidebar = ({isCollapsed,users}: SidebarProps) => {
 								selectedUser?.email === user.email &&
 									"dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white shrink"
 							)}
-							onClick={()=> {
-								soundEnabled ? playClickSound() : null;
+							onClick={() => {
+								if (soundEnabled) playClickSound();
 								setSelectedUser(user);
 							}}
+
 						>
 							<Avatar className='flex justify-center items-center'>
 								<AvatarImage

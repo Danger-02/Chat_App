@@ -19,9 +19,10 @@ const PreferencesTab = () => {
             variant={"outline"}
             size={"icon"}
             onClick={() => {
-                setTheme('light')
-                soundEnabled ? playMouseClick() : null;
+                setTheme('light');
+                if (soundEnabled) playMouseClick();
             }}
+
         >
             <SunIcon className="size-[1.2rem] text-muted-foreground" />
         </Button>
@@ -29,9 +30,10 @@ const PreferencesTab = () => {
             variant={"outline"}
             size={"icon"}
             onClick={() => {
-                setTheme('dark')
-                soundEnabled ? playMouseClick() : null;
+                setTheme('dark');
+                if (soundEnabled) playMouseClick();
             }}
+
         >
             <MoonIcon className="size-[1.2rem] text-muted-foreground" />
         </Button>
@@ -39,9 +41,14 @@ const PreferencesTab = () => {
             variant={"outline"}
             size={"icon"}
             onClick={() => {
-                setSoundEnabled(!soundEnabled)
-                soundEnabled ? playSoundOff() : playSoundOn()
+            setSoundEnabled(!soundEnabled);
+                if (soundEnabled) {
+                    playSoundOff();
+                } else {
+                    playSoundOn();
+                }
             }}
+
         >
             {soundEnabled ? (<Volume2 className="size-[1.2rem] text-muted-foreground" />) : 
             (<VolumeX className="size-[1.2rem] text-muted-foreground" />)

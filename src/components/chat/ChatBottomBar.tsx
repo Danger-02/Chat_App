@@ -134,9 +134,16 @@ const ChatBottomBar = () => {
           </div>
 
           <DialogFooter>
-            <Button type="submit" onClick={()=>{
-              sendMessage({content:imgUrl,messageType:"image",receiverId:selectedUser?.id!})
-            }}
+            <Button
+              type="submit"
+              onClick={() => {
+                if (!selectedUser?.id) return; // prevent unsafe call
+                sendMessage({
+                  content: imgUrl,
+                  messageType: "image",
+                  receiverId: selectedUser.id,
+                });
+              }}
             >
               Send
 
@@ -200,13 +207,14 @@ const ChatBottomBar = () => {
         ) : (
           <Button
             className="h-9 w-9 dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white shrink-0"
-            variant={"ghost"}
-            size={"icon"}
+            variant="ghost"
+            size="icon"
             onClick={() => {
+              if (!selectedUser?.id) return; // Avoid unsafe non-null assertion
               sendMessage({
                 content: "👍",
                 messageType: "text",
-                receiverId: selectedUser?.id!,
+                receiverId: selectedUser.id,
               });
             }}
           >
