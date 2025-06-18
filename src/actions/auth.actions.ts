@@ -1,6 +1,5 @@
 "use server";
 
-import { Redis } from "@upstash/redis";
 import { redis } from "@/lib/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 

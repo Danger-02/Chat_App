@@ -1,9 +1,8 @@
 import React from 'react'
 import AuthButtons from './AuthButtons'
-import Image from 'next/image'
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import {redirect} from "next/navigation"
-import { Button } from '@/components/ui/button'
+import Image from 'next/image'
 
 const page = async() => {
     const{isAuthenticated}=getKindeServerSession();
@@ -19,7 +18,7 @@ const page = async() => {
             ></div>
 
             <div className='flex flex-col gap-2 px-4 xl:ml-40 text-center md:text-start font-semibold'>
-                <img 
+                <Image 
                     src={"StarkConnect.svg"}
                     alt='StarkConnect Logo'
                     width={763}
@@ -34,10 +33,10 @@ const page = async() => {
             </div>
         </div>
         <div className="flex-1 relative overflow-hidden justify-center items-center hidden md:flex  bg-noise">
-            <img
+            <Image
             src={"/hero-right.png"}
             alt="Hero Image"
-            className='object-cover  pointer-events-none select-none h-full'></img>
+            className='object-cover  pointer-events-none select-none h-full'></Image>
         </div>
 
     </div>

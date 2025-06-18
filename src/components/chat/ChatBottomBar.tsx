@@ -67,7 +67,6 @@ const ChatBottomBar = () => {
     }
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(()=>{
     const channelName=`${currentUser?.id}__${selectedUser?.id}`.split("__").sort().join("__");
     const channel=pusherClient?.subscribe(channelName);

@@ -1,5 +1,5 @@
 import { getMessages } from '@/actions/message.action';
-
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { useSelectedUser } from '@/store/useSelectedUser';
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
@@ -73,7 +73,7 @@ const MessageList = () => {
               {message.messageType === "text" ? (
                 <span className='big-accent p-3 rounded-md max-w-xs'>{message.content}</span>
               ) : (
-                <img
+                <Image
                   src={message.content}
                   alt='Message Image'
                   className='border p-2 rounded h-40 md:h-52 object-cover'

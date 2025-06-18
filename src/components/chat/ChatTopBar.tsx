@@ -3,7 +3,7 @@ import { useSelectedUser } from "@/store/useSelectedUser";
 import { Avatar } from "../ui/avatar";
 import { AvatarImage } from "@radix-ui/react-avatar";
 import { Info, X } from "lucide-react";
-useSelectedUser
+
 
 const ChatTopBar = () => {
   const {selectedUser,setSelectedUser}=useSelectedUser();

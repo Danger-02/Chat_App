@@ -40,7 +40,7 @@ const PreferencesTab = () => {
             size={"icon"}
             onClick={() => {
                 setSoundEnabled(!soundEnabled)
-                soundEnabled ? playSoundOff() : playSoundOn
+                soundEnabled ? playSoundOff() : playSoundOn()
             }}
         >
             {soundEnabled ? (<Volume2 className="size-[1.2rem] text-muted-foreground" />) : 

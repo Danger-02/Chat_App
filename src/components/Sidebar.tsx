@@ -1,4 +1,4 @@
-import { User,USERS } from '@/db/dummy';
+import { User} from '@/db/dummy';
 import { Avatar, AvatarFallback, AvatarImage } from '@radix-ui/react-avatar';
 import { ScrollArea } from '@radix-ui/react-scroll-area';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@radix-ui/react-tooltip';
@@ -43,7 +43,7 @@ const Sidebar = ({isCollapsed,users}: SidebarProps) => {
 								<TooltipTrigger asChild>
 									
                                     <div onClick={()=> {
-										soundEnabled && playClickSound();
+																				soundEnabled && playClickSound();
 										setSelectedUser(user);
 									}}>
 										<Avatar className='my-1 flex justify-center items-center'>
