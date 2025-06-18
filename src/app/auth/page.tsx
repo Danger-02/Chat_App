@@ -36,6 +36,7 @@ const page = async() => {
             <Image
             src={"/hero-right.png"}
             alt="Hero Image"
+            fill
             className='object-cover  pointer-events-none select-none h-full'></Image>
         </div>
 

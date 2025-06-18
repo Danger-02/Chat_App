@@ -39,21 +39,28 @@ const ChatBottomBar = () => {
 
   const playRandomKeyStrokeSound = ()=> {
     const randomIndex = Math.floor(Math.random() * playSoundFunctions.length)
-    soundEnabled && playSoundFunctions[randomIndex]()
+    if(soundEnabled){
+      playSoundFunctions[randomIndex]();
+    }
   };
 
   const{mutate:sendMessage,isPending}=useMutation({
     mutationFn: sendMessageAction,
   });
 
-  const handleSendMessage=()=>{
-    if(!message.trim()) return;
+  const handleSendMessage = () => {
+    if (!message.trim() || !selectedUser?.id) return;
 
-    sendMessage({content:message,messageType:"text",receiverId:selectedUser?.id!});
+    sendMessage({
+      content: message,
+      messageType: "text",
+      receiverId: selectedUser.id,
+    });
+
     setMessage("");
-
     textAreaRef.current?.focus();
   };
+
 
   const handleKeyDown=(e:React.KeyboardEvent<HTMLTextAreaElement>)=>{
     if(e.key==="Enter" && !e.shiftKey){

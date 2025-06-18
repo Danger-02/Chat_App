@@ -67,7 +67,7 @@ const ChatLayout = ({defaultLayout=[320,480],users}:ChatLayoutProps) => {
     defaultSize={defaultLayout[1]} minSize={30}>
             {!selectedUser && (<div className='flex justify-center items-center h-full w-full px-10'>
                 <div className='flex flex-col justify-center items-center gap-4'>
-                    <Image src="/StarkConnect.svg" alt="Logo" className='w-full md:w-2/3 lg:w-1/2'/>
+                    <Image src="/StarkConnect.svg" width={763} height={176} alt="Logo" className='w-full md:w-2/3 lg:w-1/2'/>
                     <p className='text-muted-foreground text-center'> Click on a chat to view the messages</p>
                 </div>
             </div>)}

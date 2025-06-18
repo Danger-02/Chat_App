@@ -43,7 +43,7 @@ const Sidebar = ({isCollapsed,users}: SidebarProps) => {
 								<TooltipTrigger asChild>
 									
                                     <div onClick={()=> {
-																				soundEnabled && playClickSound();
+																				soundEnabled ? playClickSound() : null;
 										setSelectedUser(user);
 									}}>
 										<Avatar className='my-1 flex justify-center items-center'>
@@ -75,7 +75,7 @@ const Sidebar = ({isCollapsed,users}: SidebarProps) => {
 									"dark:bg-muted dark:text-white dark:hover:bg-muted dark:hover:text-white shrink"
 							)}
 							onClick={()=> {
-								soundEnabled && playClickSound();
+								soundEnabled ? playClickSound() : null;
 								setSelectedUser(user);
 							}}
 						>

@@ -20,7 +20,7 @@ const PreferencesTab = () => {
             size={"icon"}
             onClick={() => {
                 setTheme('light')
-                soundEnabled && playMouseClick()
+                soundEnabled ? playMouseClick() : null;
             }}
         >
             <SunIcon className="size-[1.2rem] text-muted-foreground" />
@@ -30,7 +30,7 @@ const PreferencesTab = () => {
             size={"icon"}
             onClick={() => {
                 setTheme('dark')
-                soundEnabled && playMouseClick()
+                soundEnabled ? playMouseClick() : null;
             }}
         >
             <MoonIcon className="size-[1.2rem] text-muted-foreground" />
