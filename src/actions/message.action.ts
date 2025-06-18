@@ -14,6 +14,7 @@ import { redis } from "@/lib/db";
  }
 
  export async function sendMessageAction({content,messageType,receiverId}:SendMessageActionArgs) {
+
     const{getUser}=getKindeServerSession();
     const user=await getUser();
 
@@ -57,9 +58,9 @@ import { redis } from "@/lib/db";
 
     const channelName=`${senderId}__${receiverId}`.split(`__`).sort().join(`__`);
 
-    await pusherServer?.trigger(channelName,'NewMessage',{
+    await pusherServer?.trigger(channelName,"newMessage",{
         message:{senderId,content,timestamp,messageType},
-    })
+    });
 
     return{success:true,conversationId,messageId};
 

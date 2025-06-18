@@ -79,10 +79,11 @@ const ChatBottomBar = () => {
     const channel=pusherClient?.subscribe(channelName);
 
     const handleNewMessage=(data:{message:Message})=>{
-      queryClient.setQueryData(["messages",selectedUser?.id],(oldMessages:Message[])=>{
-        return [...oldMessages,data.message];
+      queryClient.setQueryData(["messages",selectedUser?.id],(oldMessages?:Message[])=>{
+        return [...(oldMessages || []),data.message];
       });
 
+      
       if(soundEnabled && data.message.senderId!==currentUser?.id){
         playNotificationSound();
       }
@@ -195,7 +196,7 @@ const ChatBottomBar = () => {
         
         
         {message.trim() ? (
-          <Button
+          <Button key="send"
             className="h-9 w-9 dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white shrink-0"
             variant={"ghost"}
             size={"icon"}
@@ -205,7 +206,7 @@ const ChatBottomBar = () => {
 
           </Button>
         ) : (
-          <Button
+          <Button key="input-with-thumb"
             className="h-9 w-9 dark:bg-muted dark:text-muted-foreground dark:hover:bg-muted dark:hover:text-white shrink-0"
             variant="ghost"
             size="icon"

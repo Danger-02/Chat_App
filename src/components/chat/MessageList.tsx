@@ -16,7 +16,7 @@ const MessageList = () => {
   const messageContainerRef=useRef<HTMLDivElement>(null);
 
   const {data:messages,isLoading:isMessagesLoading}=useQuery({
-    queryKey:["message",selectedUser?.id],
+    queryKey:["messages",selectedUser?.id],
     queryFn:async () => {
       if(selectedUser && currentUser){
         return await getMessages(selectedUser?.id,currentUser?.id);
@@ -38,7 +38,9 @@ const MessageList = () => {
       <AnimatePresence>
         {!isMessagesLoading && messages?.map((message,index) => (
           <motion.div 
-            key={message?.id || `${message?.senderId || "unknown"}-${message?.content?.slice(0, 10) || "empty"}-${index}`}
+
+            key={`${message.senderId}-${message.timestamp}`}
+
             layout
             initial={{opacity:0,scale:1,y:50,x:0}}
             animate={{opacity:1,scale:1,y:0,x:0}}
